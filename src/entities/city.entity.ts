@@ -1,3 +1,4 @@
+import { Location } from './location.entity';
 import { Country } from './country.entity';
 import {
   Entity,
@@ -6,8 +7,6 @@ import {
   PrimaryGeneratedColumn,
   ManyToOne,
 } from 'typeorm';
-import { User } from './user.entity';
-
 @Entity()
 export class City {
   @PrimaryGeneratedColumn('increment')
@@ -16,8 +15,8 @@ export class City {
   @Column({ nullable: false })
   name: string;
 
-  @OneToMany(() => User, (user) => user.role, {})
-  users: User[];
+  @OneToMany(() => Location, (location) => location.city, {})
+  locations: Location[];
 
   @ManyToOne(() => Country, (country) => country.cities, {
     orphanedRowAction: 'delete',

@@ -1,3 +1,6 @@
+import { LocationModule } from './controllers/location/location.module';
+import { CommentModule } from './controllers/comment/comment.module';
+import { FilmModule } from './controllers/film/film.module';
 import { CityModule } from './controllers/city/city.module';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
@@ -16,6 +19,9 @@ import { GenreModule } from './controllers/genre/genre.module';
     CountryModule,
     CityModule,
     GenreModule,
+    FilmModule,
+    CommentModule,
+    LocationModule,
   ],
   controllers: [AppController],
   providers: [AppService],

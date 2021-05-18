@@ -7,19 +7,11 @@ export class GetParams {
 
   @IsOptional()
   @IsString()
-  name: string;
+  user?: number;
 
   @IsOptional()
   @IsString()
-  photo?: string;
-
-  @IsOptional()
-  @IsString()
-  email: string;
-
-  @IsOptional()
-  @IsString()
-  password: string;
+  location?: number;
 }
 
 export class CreateParams {
@@ -29,17 +21,17 @@ export class CreateParams {
 
   @IsOptional()
   @IsString()
-  name: string;
+  locationId: number;
 
   @IsOptional()
   @IsString()
-  photo: string;
+  text: string;
 
   @IsOptional()
   @IsString()
-  email: string;
+  date: string;
 
   @IsOptional()
   @IsString()
-  password: string;
+  userId: number;
 }

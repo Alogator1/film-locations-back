@@ -1,3 +1,4 @@
+import { City } from './city.entity';
 import { User } from './user.entity';
 import { Film } from './film.entity';
 import {
@@ -19,16 +20,25 @@ export class Location {
   name: string;
 
   @Column()
-  director: string;
+  longitude: number;
 
   @Column()
-  actors: string;
+  latitude: number;
+
+  @Column()
+  description: string;
 
   @ManyToOne(() => Film, (film) => film.locations, {
     orphanedRowAction: 'delete',
     nullable: false,
   })
   film: Film;
+
+  @ManyToOne(() => City, (city) => city.locations, {
+    orphanedRowAction: 'delete',
+    nullable: false,
+  })
+  city: City;
 
   @ManyToOne(() => User, (user) => user.locations, {
     orphanedRowAction: 'delete',

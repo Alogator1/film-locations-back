@@ -8,18 +8,6 @@ export class GetParams {
   @IsOptional()
   @IsString()
   name: string;
-
-  @IsOptional()
-  @IsString()
-  photo?: string;
-
-  @IsOptional()
-  @IsString()
-  email: string;
-
-  @IsOptional()
-  @IsString()
-  password: string;
 }
 
 export class CreateParams {
@@ -33,13 +21,13 @@ export class CreateParams {
 
   @IsOptional()
   @IsString()
-  photo: string;
+  director: string;
 
   @IsOptional()
   @IsString()
-  email: string;
+  actors: string;
 
   @IsOptional()
   @IsString()
-  password: string;
+  genreId: number;
 }
