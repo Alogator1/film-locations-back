@@ -21,6 +21,9 @@ export class Film {
   @Column()
   actors: string;
 
+  @Column()
+  description: string;
+
   @ManyToOne(() => Genre, (genre) => genre.films, {
     orphanedRowAction: 'delete',
     nullable: false,
