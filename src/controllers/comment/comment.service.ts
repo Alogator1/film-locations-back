@@ -1,6 +1,6 @@
 import { Comment } from './../../entities/comment.entity';
 import { Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateParams, GetParams } from './comment.validators';
 
@@ -16,6 +16,10 @@ export class CommentService {
       where: options,
       relations: ['location', 'user'],
     });
+  }
+
+  async deleteComment(id: number): Promise<DeleteResult> {
+    return await this.commentRepository.delete(id);
   }
 
   async saveComment(

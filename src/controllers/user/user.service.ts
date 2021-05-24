@@ -26,4 +26,13 @@ export class UserService {
     // @ts-ignore
     return await this.userRepository.save(options);
   }
+
+  async getCurrentUser(options: {
+    login: string;
+    password: string;
+  }): Promise<User | User[]> {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    return await this.userRepository.findOne(options, { relations: ['role'] });
+  }
 }

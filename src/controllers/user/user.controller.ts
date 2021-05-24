@@ -30,4 +30,11 @@ export class UserController {
   ): Promise<User | User[]> {
     return await this.userService.saveUsers(options);
   }
+
+  @Post('login')
+  async getUser(
+    @Body() options: { login: string; password: string },
+  ): Promise<User | User[]> {
+    return await this.userService.getCurrentUser(options);
+  }
 }

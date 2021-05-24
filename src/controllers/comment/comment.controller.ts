@@ -2,6 +2,7 @@ import { Comment } from './../../entities/comment.entity';
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   ParseIntPipe,
@@ -9,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { GetParams, CreateParams } from './comment.validators';
 import { CommentService } from './comment.service';
+import { DeleteResult } from 'typeorm';
 
 @Controller('comment')
 export class CommentController {
@@ -31,6 +33,13 @@ export class CommentController {
     @Param('userId', ParseIntPipe) userId: number,
   ): Promise<Comment[]> {
     return await this.commentService.findAll({ user: userId });
+  }
+
+  @Delete(':userId')
+  async deleteComment(
+    @Param('userId', ParseIntPipe) userId: number,
+  ): Promise<DeleteResult> {
+    return await this.commentService.deleteComment(userId);
   }
 
   @Post()
