@@ -19,10 +19,10 @@ export class Location {
   @Column({ nullable: false })
   name: string;
 
-  @Column()
+  @Column({ type: 'float' })
   longitude: number;
 
-  @Column()
+  @Column({ type: 'float' })
   latitude: number;
 
   @Column()
